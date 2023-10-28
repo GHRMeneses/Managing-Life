@@ -1,5 +1,12 @@
 
+import dao.UsuarioDAO;
+import model.dto.usuario.Usuario;
+import model.dto.usuario.UsuarioAdministrador;
+import view.PrincipalVIEW;
+
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,7 +24,7 @@ public class LoginFrame extends javax.swing.JFrame {
      * Creates new form LoginFrame
      */
     public LoginFrame() {
-        super("Sistema Acadêmico");
+        super("Managing Life - Login");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -95,15 +102,38 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sairButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
-        String login = loginTextField.getText();
-        String senha = new String(senhaPasswordField.getPassword());
-        if (login.equals("admin") && senha.equals("admin")) {
-            JOptionPane.showMessageDialog (null, "Bem-vindo");
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Usuario Invalido");
-        }
+       try{
+           // TODO add your handling code here:
+           String login = loginTextField.getText();
+           String senha = new String(senhaPasswordField.getPassword());
+
+           Usuario usuario = new Usuario();
+           usuario.setLogin(login);
+           usuario.setSenha(senha);
+
+           UsuarioDAO usuarioDAO = new UsuarioDAO();
+           ResultSet rsusuariodao = usuarioDAO.autenticacaoUsuario(usuario);
+
+
+           if (rsusuariodao.next()) {
+               PrincipalVIEW principalVIEW = new PrincipalVIEW();
+
+               principalVIEW.setVisible(true);
+
+               dispose();
+
+//                   int total = resultado.getInt("total");
+//                   autenticado = total > 0;
+//                   if (autenticado) {
+//                       System.out.println("Login bem-sucedido para " + usuario.getLogin());
+
+               JOptionPane.showMessageDialog (null, "Bem-vindo");
+           } else {
+               System.out.println("Usuário ou senha incorretos");
+           }
+       } catch (SQLException erro) {
+           JOptionPane.showMessageDialog(null, "LOGINFRAMEVIEW" + erro);
+       }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
@@ -147,4 +177,5 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JButton sairButton;
     private javax.swing.JPasswordField senhaPasswordField;
     // End of variables declaration//GEN-END:variables
+
 }

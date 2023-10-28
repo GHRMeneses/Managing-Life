@@ -1,4 +1,4 @@
-package usuario;
+package model.dto.usuario;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Usuario {
+
 
     private String nome;
     private String login;

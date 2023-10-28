@@ -1,3 +1,4 @@
+package model.dto;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +10,10 @@ public class ConnectionFactory {
     private static String porta = "3306";
     private static String bd = "db_managing_life";
 
-    public static Connection obtemConexao (){
+    public static Connection conectaBD (){
         try{
             Connection c = DriverManager.getConnection(
-                    "jdbc://" + host + ":" + porta + "/" + bd + "?user=" + usuario + "&password" + senha + "&useTimezonone=true&serverTimeZone=America/Sao_Paulo" );
+                    "jdbc://" + host + ":" + porta + "/" + bd + "?user=" + usuario + "&password" + senha);
             return c;
         }
         catch (Exception e) {

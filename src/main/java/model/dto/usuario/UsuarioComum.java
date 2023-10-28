@@ -1,4 +1,4 @@
-package usuario;
+package model.dto.usuario;
 
 import lombok.Getter;
 import lombok.Setter;
