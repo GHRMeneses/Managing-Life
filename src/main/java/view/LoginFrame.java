@@ -1,8 +1,16 @@
-/*
+package view;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+import dao.UsuarioDAO;
+import model.dto.usuario.Usuario;
+import view.CadastroLivro;
+
+import javax.swing.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author Andreia
@@ -10,7 +18,7 @@
 public class LoginFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form LoginFrame
+     * Creates new form view.LoginFrame
      */
     public LoginFrame() {
         super("Managing Life - Login");
@@ -91,10 +99,39 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sairButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        CadastroLivro cadastroLivro = new CadastroLivro();
-        cadastroLivro.setLocation(this.getLocationOnScreen()); // Isso define a posição do novo frame na mesma posição do frame atual.
-        cadastroLivro.setVisible(true);
-        this.dispose();
+
+        try {
+            // TODO add your handling code here:
+            String login = loginTextField.getText();
+            String senha = new String(senhaPasswordField.getPassword());
+
+            Usuario usuario = new Usuario();
+            usuario.setLogin(login);
+            usuario.setSenha(senha);
+
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            ResultSet rsusuariodao = usuarioDAO.autenticacaoUsuario(usuario);
+
+            if (rsusuariodao.next()) {
+                CadastroLivro cadastroLivro = new CadastroLivro();
+                cadastroLivro.setLocation(this.getLocationOnScreen()); // Isso define a posição do novo frame na mesma posição do frame atual.
+                cadastroLivro.setVisible(true);
+                this.dispose();
+
+//                   int total = resultado.getInt("total");
+//                   autenticado = total > 0;
+//                   if (autenticado) {
+//                       System.out.println("Login bem-sucedido para " + usuario.getLogin());
+
+                JOptionPane.showMessageDialog(null, "Bem-vindo");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+                System.out.println("Usuário ou senha incorretos");
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "LOGINFRAMEVIEW" + erro);
+        }
+
 
     }//GEN-LAST:event_loginButtonActionPerformed
 

@@ -12,9 +12,10 @@ public class ConnectionFactory {
 
     public static Connection conectaBD (){
         try{
-            Connection c = DriverManager.getConnection(
-                    "jdbc://" + host + ":" + porta + "/" + bd + "?user=" + usuario + "&password" + senha);
-            return c;
+            Class.forName("com.mysql.cj.jdbc.Driver"); /* Aqui registra */
+            String url = "jdbc:mysql://" + host + ":" + porta + "/" + bd + "?user=" + usuario + "&password=" + senha + "&serverTimezone=UTC";
+            Connection conn = DriverManager.getConnection(url);
+            return conn;
         }
         catch (Exception e) {
             e.printStackTrace();

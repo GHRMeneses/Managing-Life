@@ -1,3 +1,5 @@
+package view;
+
 public class CadastroLivro extends javax.swing.JFrame {
 
     /**
