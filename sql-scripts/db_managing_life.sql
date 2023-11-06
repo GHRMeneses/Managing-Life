@@ -1,37 +1,66 @@
+CREATE TABLE tb_tipo_usuario(
+id_tipo_usuario INT PRIMARY KEY AUTO_INCREMENT,
+descricao VARCHAR(10) NOT NULL
+);
+
+-- INSERT INTO `tb_tipo_usuario`(`id_tipo_usuario`, `descricao`) VALUES ('1','admin');
+-- INSERT INTO `tb_tipo_usuario`(`id_tipo_usuario`, `descricao`) VALUES ('2','usuario');
+
 CREATE TABLE tbusuarios (
 
     idUser INT AUTO_INCREMENT PRIMARY KEY,
-    usuario varchar(50) not null,
     nome varchar(150) not null,
     login varchar(15) not null unique,
     senha varchar(15) not null,
     idade int not null,
     sexo varchar(10) not null,
-    email varchar(50) not null
+    id_tipo_usuario INT NOT NULL,
+	CONSTRAINT FK_usuario_tipo FOREIGN KEY (id_tipo_usuario) REFERENCES tb_tipo_usuario(id_tipo_usuario)
 );
--- Selecionar todos os registros da tabela "tbusuarios"
+-- Selecionatbusuariosr todos os registros da tabela "tbusuarios"
 SELECT * FROM tbusuarios; 
 
 -- Adicionar usuario admin na tabela "tbusuarios"
-INSERT INTO tbusuarios(usuario, nome, login, senha, idade, sexo, email) value('admin', 'administrador', 'admin', '123', '23', 'masculino', 'admin@hotmail.com');
+INSERT INTO tbusuarios(nome, login, senha, idade, sexo) value('admin', 'administrador', 'admin', '123', '23', 'masculino');
 
 -- Adicionar usuario comum na tabela "tbusuarios"
-INSERT INTO tbusuarios(usuario, nome, login, senha, idade, sexo, email) value('comum', 'Mariana', 'mariana123', 'senha123', '21', 'feminino', 'mariana@hotmail.com');
+INSERT INTO tbusuarios(usuario, nome, login, senha, idade, sexo) value('comum', 'Mariana', 'mariana123', 'senha123', '21', 'feminino');
 
 -- Criação da tabela de Livros
-CREATE TABLE Livros (
-    livroID INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(255) NOT NULL,
-    autor VARCHAR(100),
-    tipo VARCHAR(50)
+CREATE TABLE tb_genero(
+id_genero INT PRIMARY KEY,
+descricao VARCHAR(30)
 );
 
--- Criação da tabela de Avaliações
-CREATE TABLE Avaliacoes (
-    avaliacoesID INT AUTO_INCREMENT PRIMARY KEY,
-    idUses INT,
-    livroID INT,
-    avaliacao INT,
-    FOREIGN KEY (IdUses) REFERENCES Users(IdUses),
-    FOREIGN KEY (LivroID) REFERENCES Books(LivroID)
+-- SELECT * FROM tb_genero;
+-- INSERT INTO tb_genero (id_genero, descricao) VALUES ('1','romance');
+-- INSERT INTO tb_genero (id_genero, descricao) VALUES ('2','ficção');
+-- INSERT INTO tb_genero (id_genero, descricao) VALUES ('3','técnico');
+
+CREATE TABLE tb_livro(
+id_livro INT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(30) NOT NULL,
+id_genero INT NOT NULL,
+id_usuario INT NOT NULL,
+CONSTRAINT FK_livro_genero FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero),
+CONSTRAINT FK_livro_usuario FOREIGN KEY (id_usuario ) REFERENCES tb_usuario(id_usuario)
 );
+
+CREATE TABLE tb_avaliacao(
+id_avaliacao INT PRIMARY KEY AUTO_INCREMENT,
+nota INT NOT NULL,
+id_usuario INT NOT NULL,
+id_livro INT NOT NULL,
+CONSTRAINT FK_avaliacao_idlivro FOREIGN KEY (id_livro) REFERENCES tb_livro(id_livro),
+CONSTRAINT FK_avaliacao_idusuario FOREIGN KEY (id_usuario) REFERENCES tb_usuario(id_usuario)
+);
+
+CREATE TABLE tb_preferidos(
+id_preferido INT PRIMARY KEY AUTO_INCREMENT,
+id_usuario INT NOT NULL,
+id_genero INT NOT NULL,
+CONSTRAINT FK_preferido_usuario FOREIGN KEY (id_usuario) REFERENCES tb_usuario(id_usuario),
+CONSTRAINT FK_preferido_genero FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero)  
+);
+
+-- SELECT * FROM tb_preferidos;
