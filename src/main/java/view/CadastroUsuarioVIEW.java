@@ -45,12 +45,18 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
         tecnicoRadioButton = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        loginTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        loginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        loginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
-        nomeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        nomeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
+        nomeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeTextFieldActionPerformed(evt);
+            }
+        });
 
         voltarButton.setText("Voltar");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +65,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             }
         });
 
-        senhaPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        senhaPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
         cadastrarButton.setText("Cadastrar");
         cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,11 +74,16 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             }
         });
 
-        administradorCheckBox.setText("Dar permições de adminstrador");
+        administradorCheckBox.setText("Permissões de administrador");
+        administradorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                administradorCheckBoxActionPerformed(evt);
+            }
+        });
 
-        generoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        generoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Genero"));
 
-        idadeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        idadeTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Idade"));
 
         romanceRadioButton.setText("Romance");
         romanceRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -89,16 +100,26 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Cadastrar Novo Usuario");
+        jLabel2.setText("Cadastrao de novo usuário");
+
+        loginTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
+        loginTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginTextField2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(loginTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(223, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 123, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,14 +139,17 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
                             .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(30, 30, 30)
                             .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 123, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(loginTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(496, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 40, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(20, 20, 20)
                     .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,8 +174,11 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 41, Short.MAX_VALUE)))
         );
+
+        nomeTextField.getAccessibleContext().setAccessibleDescription("");
+        loginTextField2.getAccessibleContext().setAccessibleName("Nome1");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,6 +244,18 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_romanceRadioButtonActionPerformed
 
+    private void administradorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administradorCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_administradorCheckBoxActionPerformed
+
+    private void nomeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeTextFieldActionPerformed
+
+    private void loginTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginTextField2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -261,6 +300,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField loginTextField;
+    private javax.swing.JTextField loginTextField2;
     private javax.swing.JTextField nomeTextField;
     private javax.swing.JRadioButton romanceRadioButton;
     private javax.swing.JPasswordField senhaPasswordField;

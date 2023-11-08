@@ -8,7 +8,7 @@ descricao VARCHAR(10) NOT NULL
 
 CREATE TABLE tbusuarios (
 
-    idUser INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     nome varchar(150) not null,
     login varchar(15) not null unique,
     senha varchar(15) not null,
