@@ -113,9 +113,12 @@ public class LoginFrame extends javax.swing.JFrame {
             ResultSet rsusuariodao = usuarioDAO.autenticacaoUsuario(usuario);
 
             if (rsusuariodao.next()) {
-                CadastroLivro cadastroLivro = new CadastroLivro();
-                cadastroLivro.setLocation(this.getLocationOnScreen()); // Isso define a posição do novo frame na mesma posição do frame atual.
-                cadastroLivro.setVisible(true);
+//                CadastroLivro cadastroLivro = new CadastroLivro();
+//                cadastroLivro.setLocation(this.getLocationOnScreen()); // Isso define a posição do novo frame na mesma posição do frame atual.
+//                cadastroLivro.setVisible(true);
+                PrincipalAdmVIEW principalAdmVIEW = new PrincipalAdmVIEW();
+                principalAdmVIEW.setLocation(this.getLocationOnScreen());
+                principalAdmVIEW.setVisible(true);
                 this.dispose();
 
 //                   int total = resultado.getInt("total");
