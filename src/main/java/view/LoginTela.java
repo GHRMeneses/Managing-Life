@@ -6,21 +6,19 @@ package view;/*
 
 import dao.UsuarioDAO;
 import model.dto.usuario.Usuario;
-import view.CadastroLivro;
 
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-/**
- * @author Andreia
- */
+import java.util.Properties;
 public class LoginTela extends javax.swing.JFrame {
+    private static Properties properties;
 
-    /**
-     * Creates new form view.LoginFrame
-     */
-    public LoginTela() {
+    public LoginTela(){
+        this.properties = properties;
+    }
+
+    public LoginTela(Properties properties) {
         super("Managing Life - Login");
         initComponents();
         this.setLocationRelativeTo(null);
@@ -133,6 +131,8 @@ public class LoginTela extends javax.swing.JFrame {
             }
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "LOGINFRAMEVIEW" + erro);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
 
@@ -142,34 +142,10 @@ public class LoginTela extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginTela().setVisible(true);
+                new LoginTela(properties).setVisible(true);
             }
         });
     }

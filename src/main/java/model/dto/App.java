@@ -8,6 +8,8 @@ package model.dto;
  *
  * @author rodrigo
  */
+import view.LoginTela;
+
 import java.io.FileInputStream;
 import java.io.File;
 import java.util.Properties;
