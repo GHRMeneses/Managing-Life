@@ -38,7 +38,7 @@ public class ConnectionFactory {
     public Connection conectar() throws Exception{
         return DriverManager.getConnection(
             String.format(
-                "jdbc:postgresql://%s:%s/%s",
+                "jdbc:mysql://%s:%s/%s",
                 host,
                 port,
                 db
