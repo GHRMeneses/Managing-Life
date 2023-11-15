@@ -322,6 +322,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField loginTextField;
+    private javax.swing.JTextField loginTextField2;
     private javax.swing.JTextField nomeTextField;
     private javax.swing.JRadioButton romanceRadioButton;
     private javax.swing.JPasswordField senhaPasswordField;

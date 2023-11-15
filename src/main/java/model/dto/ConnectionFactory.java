@@ -1,25 +1,71 @@
 package model.dto;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
+/**
+ *
+ * @author rodrigo
+ */
 public class ConnectionFactory {
-    private static String usuario = "root";
-    private static String senha = "anima123";
-    private static String host = "localhost";
-    private static String porta = "3306";
-    private static String bd = "db_managing_life";
-
-    public static Connection conectaBD (){
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver"); /* Aqui registra */
-            String url = "jdbc:mysql://" + host + ":" + porta + "/" + bd + "?user=" + usuario + "&password=" + senha + "&serverTimezone=UTC";
-            Connection conn = DriverManager.getConnection(url);
-            return conn;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    private String host, port, db, user, password;
+    
+    public ConnectionFactory (java.util.Properties properties){
+        this(
+            properties.getProperty("DB_HOST"),
+            properties.getProperty("DB_PORT"),
+            properties.getProperty("DB_NAME"),
+            properties.getProperty("DB_USER"),
+            properties.getProperty("DB_PASSWORD")
+        );
+    }
+    public ConnectionFactory(
+        String host,
+        String port,
+        String db,
+        String user,
+        String password
+    ){
+      this.host = host;
+      this.port = port;
+      this.db = db;
+      this.user = user;
+      this.password = password;
+    }
+    public Connection conectar() throws Exception{
+        return DriverManager.getConnection(
+            String.format(
+                "jdbc:postgresql://%s:%s/%s",
+                host,
+                port,
+                db
+            ),
+            user,
+            password
+        );
+    }
+    
+    public static void main(String[] args) throws Exception {
+        var properties = new Properties();
+        properties.load(
+            new FileInputStream(new File("conf.properties"))
+        );
+        final String DB_HOST = properties.getProperty("DB_HOST");
+        final String DB_PORT = properties.getProperty("DB_PORT");
+        final String DB_NAME = properties.getProperty("DB_NAME");
+        final String DB_USER = properties.getProperty("DB_USER");
+        final String DB_PASSWORD = properties.getProperty("DB_PASSWORD");
+        var fabrica = new ConnectionFactory(
+            DB_HOST, 
+            DB_PORT, 
+            DB_NAME, 
+            DB_USER, 
+            DB_PASSWORD
+        );
+        System.out.println(fabrica.conectar());
     }
 }
+
