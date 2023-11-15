@@ -87,8 +87,8 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarLivroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroButtonActionPerformed
-        var cut = new CadastroUsuarioVIEW();
-        cut.setVisible(true);
+        var cadastroLivro = new CadastroLivro();
+        cadastroLivro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
 
@@ -98,6 +98,9 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
 
     private void cadastrarUsuarioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioButton1ActionPerformed
         // TODO add your handling code here:
+        var cut = new CadastroUsuarioVIEW();
+        cut.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_cadastrarUsuarioButton1ActionPerformed
 
     /**
