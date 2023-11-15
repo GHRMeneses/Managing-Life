@@ -11,7 +11,11 @@ import java.util.Properties;
  * @author rodrigo
  */
 public class ConnectionFactory {
-    private String host, port, db, user, password;
+    private static String host;
+    private static String port;
+    private static String db;
+    private static String user;
+    private static String password;
     
     public ConnectionFactory (java.util.Properties properties){
         this(
@@ -35,7 +39,10 @@ public class ConnectionFactory {
       this.user = user;
       this.password = password;
     }
-    public Connection conectar() throws Exception{
+
+
+
+    public static Connection conectaBD() throws Exception{
         return DriverManager.getConnection(
             String.format(
                 "jdbc:mysql://%s:%s/%s",
@@ -65,7 +72,7 @@ public class ConnectionFactory {
             DB_USER, 
             DB_PASSWORD
         );
-        System.out.println(fabrica.conectar());
+        System.out.println(fabrica.conectaBD());
     }
 }
 
