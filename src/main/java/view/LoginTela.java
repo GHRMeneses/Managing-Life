@@ -14,12 +14,9 @@ import java.util.Properties;
 public class LoginTela extends javax.swing.JFrame {
     private static Properties properties;
 
-    public LoginTela(){
-        this.properties = properties;
-    }
-
-    public LoginTela(Properties properties) {
+ public LoginTela(Properties properties) {
         super("Managing Life - Login");
+        this.properties = properties;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -103,11 +100,12 @@ public class LoginTela extends javax.swing.JFrame {
             String login = loginTextField.getText();
             String senha = new String(senhaPasswordField.getPassword());
 
+
             Usuario usuario = new Usuario();
             usuario.setLogin(login);
             usuario.setSenha(senha);
 
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            UsuarioDAO usuarioDAO = new UsuarioDAO(properties); // Passe as propriedades ao criar a instância
             ResultSet rsusuariodao = usuarioDAO.autenticacaoUsuario(usuario);
 
             if (rsusuariodao.next()) {
@@ -129,7 +127,7 @@ public class LoginTela extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
                 System.out.println("Usuário ou senha incorretos");
             }
-        } catch (SQLException erro) {
+            } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "LOGINFRAMEVIEW" + erro);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -141,8 +139,7 @@ public class LoginTela extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-
+        public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginTela(properties).setVisible(true);

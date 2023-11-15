@@ -9,6 +9,8 @@ import dao.UsuarioDAO;
 import javax.swing.JOptionPane;
 import model.dto.LivroPreferido;
 import model.dto.usuario.Usuario;
+import java.util.Properties;
+
 
 /**
  *
@@ -205,51 +207,58 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
 
-        //dados do usuario recebidos do formulario
-        String nome = loginTextField.getText();
-        String login = loginTextField.getText();
-        String senha = new String(senhaPasswordField.getPassword());
-        int idade = Integer.parseInt(idadeTextField.getText());
-        String genero = generoTextField.getText();
-        int tipo = 2;
-        if (administradorCheckBox.isSelected()){
-            tipo = 1;
-        }
-
+    //dados do usuario recebidos do formulario
+    String nome = nomeTextField.getText();
+    String login = loginTextField.getText();
+    String senha = new String(senhaPasswordField.getPassword());
+    int idade = Integer.parseInt(idadeTextField.getText());
+    String genero = generoTextField.getText();
+    int tipo = 2;
+    if (administradorCheckBox.isSelected()) {
+        tipo = 1;
+    }
+    
+    Properties properties = new Properties();
         //tentando cadastrar o usuario na tabela tb_usuario e receber o id
-        try{
-            Usuario usuario = new Usuario(nome, login, senha, idade, genero, tipo);
-            UsuarioDAO.cadastrar(usuario);
-            System.out.println("Usuario cadastrado com sucesso!");
-            UsuarioDAO.selectId(usuario);
-            System.out.println("Select de id realizado com sucesso!");
+        try {
+        UsuarioDAO usuarioDAO = new UsuarioDAO(properties);
+        Usuario usuario = new Usuario(nome, login, senha, idade, genero, tipo);
 
-            //tentando cadastrar os generos preferidos do usario na tabela tb_preferidos
-            //1 = romance
-            //2 = ficção
-            //3 = técnico
+        // Agora você pode chamar os métodos não estáticos a partir da instância criada
+        usuarioDAO.cadastrar(usuario);
+        System.out.println("Usuario cadastrado com sucesso!");
 
-            if (romanceRadioButton.isSelected()){
-                var p = new LivroPreferido(usuario.getIdUsuario(), 1);
-                LivroPreferidoDAO.registrar(p);
-            }
-            if (ficcaoRadioButton.isSelected()){
-                var p = new LivroPreferido(usuario.getIdUsuario(), 2);
-                LivroPreferidoDAO.registrar(p);
-            }
-            if (tecnicoRadioButton.isSelected()){
-                var p = new LivroPreferido(usuario.getIdUsuario(), 3);
-                LivroPreferidoDAO.registrar(p);
-            }
+        usuarioDAO.selectId(usuario);
+        System.out.println("Select de id realizado com sucesso!");
 
-            JOptionPane.showMessageDialog (null, "Usuario cadastrado com sucesso!");
-            var ht = new PrincipalAdmVIEW();
-            ht.setVisible(true);
-            this.dispose();
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog (null, "Problemas na conexão");
-            e.printStackTrace();
+// Criar uma instância de LivroPreferidoDAO
+LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
+
+        //tentando cadastrar os generos preferidos do usario na tabela tb_preferidos
+        //1 = romance
+        //2 = ficção
+        //3 = técnico
+
+if (romanceRadioButton.isSelected()) {
+    var p = new LivroPreferido(usuario.getIdUsuario(), 1);
+    livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
+}
+if (ficcaoRadioButton.isSelected()) {
+    var p = new LivroPreferido(usuario.getIdUsuario(), 2);
+    livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
+}
+if (tecnicoRadioButton.isSelected()) {
+    var p = new LivroPreferido(usuario.getIdUsuario(), 3);
+    livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
+}
+
+        JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
+        var ht = new PrincipalAdmVIEW();
+        ht.setVisible(true);
+        this.dispose();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Problemas na conexão");
+        e.printStackTrace();
         }
 
     }//GEN-LAST:event_cadastrarButtonActionPerformed

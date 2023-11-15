@@ -7,30 +7,33 @@ import lombok.Setter;
 @Setter
 public class Usuario {
 
+    // Variáveis que armazenam as informações do usuário.
+    
     private int idUsuario;
     private String nome;
     private String login;
     private String senha;
     private int idade;
-    private String sexo;
-    private int tipo;
     private String genero;
+    private int tipo;
 
-   public Usuario(){
-    };
-    
+    // Construtores que permitem criar instâncias da classe com diferentes conjuntos de informações.
+
+    public Usuario() {
+    }
+
     public Usuario(String login, String senha) {
         this.login = login;
         this.senha = senha;
     }
-    
-    public Usuario(String nome, String login, String senha){
+
+    public Usuario(String nome, String login, String senha) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
     }
 
-    public Usuario(String nome, String login, String senha, int idade, String genero, int tipo){
+    public Usuario(String nome, String login, String senha, int idade, String genero, int tipo) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
@@ -39,20 +42,21 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    
-    public int getIdUsuario(){
+    // Métodos de acesso (getters e setters) para obter e alterar as informações do usuário.
+
+    public int getIdUsuario() {
         return idUsuario;
     }
-    
-    public void setIdUsuario(int id){
+
+    public void setIdUsuario(int id) {
         this.idUsuario = id;
     }
-    
-    public int getTipo(){
+
+    public int getTipo() {
         return tipo;
     }
-    
-    public void setTipo(int tipo){
+
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
@@ -63,7 +67,7 @@ public class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public String getLogin() {
         return login;
     }
@@ -71,7 +75,7 @@ public class Usuario {
     public void setLogin(String login) {
         this.login = login;
     }
-    
+
     public String getSenha() {
         return senha;
     }
@@ -79,7 +83,7 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
     public int getIdade() {
         return idade;
     }
@@ -87,7 +91,7 @@ public class Usuario {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    
+
     public String getGenero() {
         return genero;
     }

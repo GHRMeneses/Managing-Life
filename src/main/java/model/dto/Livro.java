@@ -10,13 +10,25 @@ package model.dto;
  */
 public class Livro {
 
+    // Estas são as variáveis que representam as características do livro.
+    
     private String titulo;
     private String autor;
     private String tipo;
     private int nota;
 
-    // Construtores, getters e setters}
+    // Este é o construtor da classe, utilizado para criar instâncias de Livro.
+    // Ele recebe todas as informações necessárias para definir as características do livro.
+    
+    public Livro(String titulo, String autor, String tipo, int nota) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.tipo = tipo;
+        this.nota = nota;
+    }
 
+    // Estes são os métodos de acesso (getters e setters) para as características do livro.
+    // Eles permitem que outras partes do código obtenham ou alterem essas características.
 
     public String getTitulo() {
         return titulo;
