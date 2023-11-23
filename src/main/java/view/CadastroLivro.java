@@ -1,5 +1,13 @@
 package view;
 
+import dao.UsuarioDAO;
+import model.dto.Usuario;
+
+import javax.swing.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
+
 public class CadastroLivro extends javax.swing.JFrame {
 
     /**
@@ -27,7 +35,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         nomeAutor.setToolTipText("");
-        nomeAutor.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o autor do livro"));
+        nomeAutor.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
         nomeAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeAutorActionPerformed(evt);
@@ -35,7 +43,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         });
 
         nomeDoLivro2.setToolTipText("");
-        nomeDoLivro2.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o nome do livro"));
+        nomeDoLivro2.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
         nomeDoLivro2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeDoLivro2ActionPerformed(evt);
@@ -43,6 +51,11 @@ public class CadastroLivro extends javax.swing.JFrame {
         });
 
         escolherLivro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Ténico" }));
+        escolherLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                escolherLivroActionPerformed(evt);
+            }
+        });
 
         label1.setText("Escolha o Gênero do livro");
 
@@ -100,8 +113,41 @@ public class CadastroLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeDoLivro2ActionPerformed
 
     private void cadastrarLivroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroButtonActionPerformed
- 
+    String nomeLivro = nomeDoLivro2.getText();
+    String nomeAutor = nomeAutor.getText();
+    String generoSelecionado = (String) escolherLivro.getSelectedItem();
+
+    // Mapear os nomes dos gêneros para seus respectivos IDs no banco de dados
+    int idGenero = mapearGeneroParaID(generoSelecionado);
+
+    // Criar um objeto LivroPreferido com as informações coletadas
+    LivroPreferido livroPreferido = new LivroPreferido(nomeLivro, nomeAutor, idGenero);
+
+    // Chamar o LivroPreferidoDAO para registrar o livro preferido
+    LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
+    livroPreferidoDAO.registrarLivroPreferido(livroPreferido);
+}
+
+// Função para mapear o nome do gênero para o ID correspondente
+    private int mapearGeneroParaID(String generoSelecionado) {
+    // Lógica para mapear o nome do gênero para o ID correspondente
+    // Use o nome da variável escolherLivro para acessar o item selecionado no JComboBox
+
+    switch (generoSelecionado) {
+        case "Romance":
+            return 1; // Supondo que 1 seja o ID para Romance no seu banco de dados
+        case "Ficção":
+            return 2; // Supondo que 2 seja o ID para Ficção no seu banco de dados
+        // Adicione outros casos para os outros gêneros, se necessário
+        default:
+            return 0; // Retorno padrão se o gênero não for encontrado
+    }
+
     }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
+
+    private void escolherLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escolherLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_escolherLivroActionPerformed
 
     /**
      * @param args the command line arguments

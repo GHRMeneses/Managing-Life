@@ -38,9 +38,19 @@ public class LoginTela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        loginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu login"));
+        loginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        loginTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginTextFieldActionPerformed(evt);
+            }
+        });
 
-        senhaPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
+        senhaPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        senhaPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaPasswordFieldActionPerformed(evt);
+            }
+        });
 
         sairButton.setText("Sair");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +132,14 @@ public class LoginTela extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void loginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginTextFieldActionPerformed
+
+    private void senhaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaPasswordFieldActionPerformed
 
     /**
      * @param args the command line arguments

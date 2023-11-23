@@ -234,24 +234,10 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             usuarioDAO.cadastrar(usuario);
             JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
 
-
-//            usuarioDAO.selectId(usuario);
-//            System.out.println("Select de id realizado com sucesso!");
-
-            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
-
-            if (romanceRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 1);
-                livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
-            }
-            if (ficcaoRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 2);
-                livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
-            }
-            if (tecnicoRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 3);
-                livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
-            }
+            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO();
+            livroPreferidoDAO.registrar(new LivroPreferido(usuario.getIdUsuario(), 1), properties);
+            livroPreferidoDAO.registrar(new LivroPreferido(usuario.getIdUsuario(), 2), properties);
+            livroPreferidoDAO.registrar(new LivroPreferido(usuario.getIdUsuario(), 3), properties);
 
             JOptionPane.showMessageDialog(null, "Preferencias cadastradas com sucesso!");
             var ht = new PrincipalAdmVIEW(properties);
@@ -285,7 +271,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idadeTextFieldActionPerformed
 
-    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoTextFieldActionPerformed
+    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                
     }
     private javax.swing.JCheckBox administradorCheckBox;
     private javax.swing.JButton cadastrarButton;
