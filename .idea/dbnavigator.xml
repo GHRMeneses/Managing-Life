@@ -2,13 +2,13 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
@@ -20,7 +20,15 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="40f52a10-3134-4165-adf2-9a29cc9541b2" object-ref="consoles/db" />
+    </open-files>
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/sql-scripts/db_managing_life.sql" connection-id="40f52a10-3134-4165-adf2-9a29cc9541b2" session-id="MAIN" current-schema="defaultdb" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -514,5 +522,9 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
+    <execution-variable-types />
   </component>
 </project>

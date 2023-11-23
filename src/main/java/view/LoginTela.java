@@ -5,16 +5,17 @@
 package view;
 
 import dao.UsuarioDAO;
-import model.dto.usuario.Usuario;
+import model.dto.Usuario;
 
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 public class LoginTela extends javax.swing.JFrame {
-    private static Properties properties;
+    private Properties properties;
+    private ResultSet rsusuariodao;
 
- public LoginTela(Properties properties) {
+    public LoginTela(Properties properties) {
         super("Managing Life - Login");
         this.properties = properties;
         initComponents();
@@ -94,33 +95,19 @@ public class LoginTela extends javax.swing.JFrame {
     }//GEN-LAST:event_sairButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-
-        try {
-            // TODO add your handling code here:
             String login = loginTextField.getText();
             String senha = new String(senhaPasswordField.getPassword());
 
+        try {
+            Usuario usuario = new Usuario(login, senha);
+            UsuarioDAO usuarioDAO = new UsuarioDAO(properties);
 
-            Usuario usuario = new Usuario();
-            usuario.setLogin(login);
-            usuario.setSenha(senha);
+            if (usuarioDAO.autenticacaoUsuario(usuario)) {
 
-            UsuarioDAO usuarioDAO = new UsuarioDAO(properties); // Passe as propriedades ao criar a instância
-            ResultSet rsusuariodao = usuarioDAO.autenticacaoUsuario(usuario);
-
-            if (rsusuariodao.next()) {
-//                CadastroLivro cadastroLivro = new CadastroLivro();
-//                cadastroLivro.setLocation(this.getLocationOnScreen()); // Isso define a posição do novo frame na mesma posição do frame atual.
-//                cadastroLivro.setVisible(true);
-                PrincipalAdmVIEW principalAdmVIEW = new PrincipalAdmVIEW();
+                PrincipalAdmVIEW principalAdmVIEW = new PrincipalAdmVIEW(properties);
                 principalAdmVIEW.setLocation(this.getLocationOnScreen());
                 principalAdmVIEW.setVisible(true);
                 this.dispose();
-
-//                   int total = resultado.getInt("total");
-//                   autenticado = total > 0;
-//                   if (autenticado) {
-//                       System.out.println("Login bem-sucedido para " + usuario.getLogin());
 
                 JOptionPane.showMessageDialog(null, "Bem-vindo");
             } else {
@@ -139,13 +126,6 @@ public class LoginTela extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-        public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginTela(properties).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton loginButton;
