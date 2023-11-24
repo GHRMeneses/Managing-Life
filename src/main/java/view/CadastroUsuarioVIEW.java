@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import model.dto.LivroPreferido;
 import model.dto.Usuario;
 
+import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -232,14 +233,28 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             UsuarioDAO usuarioDAO = new UsuarioDAO(properties);
 
             usuarioDAO.cadastrar(usuario);
-            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
+            System.out.println("Usuario cadastrado com sucesso!");
 
-            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO();
-            livroPreferidoDAO.registrar(new LivroPreferido(usuario.getIdUsuario(), 1), properties);
-            livroPreferidoDAO.registrar(new LivroPreferido(usuario.getIdUsuario(), 2), properties);
-            livroPreferidoDAO.registrar(new LivroPreferido(usuario.getIdUsuario(), 3), properties);
+            usuarioDAO.receberDados(usuario);
+            System.out.println("Select realizado com sucesso!");
 
-            JOptionPane.showMessageDialog(null, "Preferencias cadastradas com sucesso!");
+            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
+
+            if (romanceRadioButton.isSelected()) {
+                var p = new LivroPreferido(usuario.getIdUsuario(), 1);
+                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+            }
+            if (ficcaoRadioButton.isSelected()) {
+                var p = new LivroPreferido(usuario.getIdUsuario(), 2);
+                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+            }
+            if (tecnicoRadioButton.isSelected()) {
+                var p = new LivroPreferido(usuario.getIdUsuario(), 3);
+                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+            }
+
+            JOptionPane.showMessageDialog(null, "Usuario e preferências cadastrados com sucesso!");
+
             var ht = new PrincipalAdmVIEW(properties);
             ht.setVisible(true);
             this.dispose();
@@ -271,7 +286,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idadeTextFieldActionPerformed
 
-    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoTextFieldActionPerformed
     }
     private javax.swing.JCheckBox administradorCheckBox;
     private javax.swing.JButton cadastrarButton;
