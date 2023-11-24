@@ -37,8 +37,10 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
     private void initComponents() {
 
         cadastrarLivroButton = new javax.swing.JButton();
-        sairButton = new javax.swing.JButton();
         cadastrarUsuarioButton1 = new javax.swing.JButton();
+        managinglife = new javax.swing.JLabel();
+        managinglife1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,13 +51,6 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
             }
         });
 
-        sairButton.setText("Sair");
-        sairButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sairButtonActionPerformed(evt);
-            }
-        });
-
         cadastrarUsuarioButton1.setText("Cadastrar Usuario");
         cadastrarUsuarioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,35 +58,49 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
             }
         });
 
+        managinglife.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        managinglife.setText("Seja bem vindo Admnistrador.");
+
+        managinglife1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        managinglife1.setText("Painel Admin");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Screenshot_1.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(cadastrarUsuarioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(cadastrarUsuarioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(managinglife1)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(managinglife)
+                        .addGap(95, 95, 95))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(managinglife1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(managinglife, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarUsuarioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
-
-        cadastrarLivroButton.getAccessibleContext().setAccessibleName("Cadastrar Livro");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,10 +110,6 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
         cadastroLivro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
-
-    private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_sairButtonActionPerformed
 
     private void cadastrarUsuarioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioButton1ActionPerformed
         // TODO add your handling code here:
@@ -120,6 +125,8 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarLivroButton;
     private javax.swing.JButton cadastrarUsuarioButton1;
-    private javax.swing.JButton sairButton;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel managinglife;
+    private javax.swing.JLabel managinglife1;
     // End of variables declaration//GEN-END:variables
 }
