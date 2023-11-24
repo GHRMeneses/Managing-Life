@@ -28,7 +28,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(String nome, String login, String senha, int idade, String genero, int id_tipo_usuario){
+    public Usuario(String nome, String login, String senha, int idade, String sexo, int id_tipo_usuario){
         this.nome = nome;
         this.login = login;
         this.senha = senha;

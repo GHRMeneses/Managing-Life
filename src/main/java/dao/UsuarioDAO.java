@@ -119,28 +119,28 @@ public class UsuarioDAO {
             }
         }
     }
+
+    public void receberDados(Usuario usuario) throws Exception {
+        var fabrica = new ConnectionFactory(properties);
+
+        String sql = "SELECT * FROM tbusuarios WHERE login = ? AND senha = ?";
+        try (var conexao = fabrica.conectar();
+             PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setString(1, usuario.getLogin());
+            ps.setString(2, usuario.getSenha());
+            try (ResultSet rs = ps.executeQuery()) {
+                rs.next();
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setIdade(rs.getInt("idade"));
+                usuario.setSexo(rs.getString("sexo"));
+                usuario.setId_tipo_usuario(rs.getInt("id_tipo_usuario"));
+            }
+        }
+    }
 }
 
 
 
-        // Este método usa um encantamento para descobrir o ID de um leitor (usuário) na biblioteca.
-        // Ele consulta o livro mágico para encontrar o ID do leitor com base em suas informações.
-
-//        public static void selectId (Usuario usuario) throws Exception {
-//            var fabrica = new ConnectionFactory(properties);
-//            var conexao = fabrica.conectar();
-//            String sql = "SELECT * FROM tbusuarios WHERE login = ? AND senha = ?";
-//            try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
-//                pstm.setString(1, usuario.getLogin());
-//                pstm.setString(2, usuario.getSenha());
-//                try (var rs = pstm.executeQuery()) {
-//                    rs.next();
-//                    usuario.setIdUsuario(rs.getInt("id_usuario"));
-//                } catch (SQLException e) {
-//                    // O guardião não se preocupa muito, ele sabe que a magia nem sempre acontece como esperado.
-//                }
-//            } catch (SQLException e) {
-//            }
-//        }
-//    }
-//

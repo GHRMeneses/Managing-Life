@@ -17,14 +17,16 @@ CREATE TABLE tbusuarios (
 	CONSTRAINT FK_usuario_tipo FOREIGN KEY (id_tipo_usuario) REFERENCES tb_tipo_usuario(id_tipo_usuario)
 );
 -- Selecionatbusuariosr todos os registros da tabela "tbusuarios"
-SELECT * FROM tbusuarios; 
+SELECT * FROM tbusuarios;
 
 -- Adicionar usuario admin na tabela "tbusuarios"
 INSERT INTO tbusuarios (nome, login, senha, idade, sexo, id_tipo_usuario)
 VALUES ('administrador','admin', 123, 23, 'masculino', 1);
 
+DELETE FROM tbusuarios where `idUsuario` = 6;
+
 -- Adicionar usuario comum na tabela "tbusuarios"
-INSERT INTO tbusuarios(usuario, nome, login, senha, idade, sexo) value('comum', 'Mariana', 'mariana123', 'senha123', '21', 'feminino');
+INSERT INTO tbusuarios(nome, login, senha, idade, sexo, id_tipo_usuario) values('Mariana', 'mariana123', 'senha123', 21, 'feminino', 2);
 
 -- Criação da tabela de Livros
 CREATE TABLE tb_genero(
@@ -32,10 +34,14 @@ id_genero INT PRIMARY KEY,
 descricao VARCHAR(30)
 );
 
+SELECT * FROM tb_genero;
+
 -- SELECT * FROM tb_genero;
--- INSERT INTO tb_genero (id_genero, descricao) VALUES ('1','romance');
--- INSERT INTO tb_genero (id_genero, descricao) VALUES ('2','ficção');
--- INSERT INTO tb_genero (id_genero, descricao) VALUES ('3','técnico');
+ INSERT INTO tb_genero (id_genero, descricao) VALUES ('1','romance');
+ INSERT INTO tb_genero (id_genero, descricao) VALUES ('2','ficção');
+ INSERT INTO tb_genero (id_genero, descricao) VALUES ('3','técnico');
+
+SELECT * FROM tb_livro;
 
 CREATE TABLE tb_livro (
   id_livro INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,12 +62,15 @@ CONSTRAINT FK_avaliacao_idlivro FOREIGN KEY (id_livro) REFERENCES tb_livro(id_li
 CONSTRAINT FK_avaliacao_idusuario FOREIGN KEY (idUsuario) REFERENCES tbusuarios(idUsuario)
 );
 
-CREATE TABLE tb_preferidos(
-id_preferido INT PRIMARY KEY AUTO_INCREMENT,
-idUsuario INT NOT NULL,
-id_genero INT NOT NULL,
-CONSTRAINT FK_preferido_usuario FOREIGN KEY (idUsuario) REFERENCES tbusuarios(idUsuario),
-CONSTRAINT FK_preferido_genero FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero)  
+CREATE TABLE tb_preferidos (
+    id_preferido INT PRIMARY KEY AUTO_INCREMENT,
+    idUsuario INT NOT NULL,
+    id_genero INT NOT NULL,
+    CONSTRAINT FK_preferido_usuario FOREIGN KEY (idUsuario) REFERENCES tbusuarios(idUsuario) ON DELETE CASCADE,
+    CONSTRAINT FK_preferido_genero FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero)
 );
 
--- SELECT * FROM tb_preferidos;
+ SELECT * FROM tb_preferidos;
+ DELETE FROM tb_preferidos WHERE idUsuario = 10;
+
+

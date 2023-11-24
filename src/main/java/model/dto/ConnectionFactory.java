@@ -11,7 +11,11 @@ public class ConnectionFactory {
     
     // Aqui, definimos as variáveis que serão utilizadas para construir a conexão.
     
-    private String host, port, db, user, password;
+    private static String host;
+    private static String port;
+    private static String db;
+    private static String user;
+    private static String password;
     
     // Este é o construtor principal, que recebe um conjunto de propriedades para criar a conexão.
     
@@ -43,7 +47,7 @@ public class ConnectionFactory {
     
     // Este método cria e retorna a conexão com o banco de dados.
     
-    public Connection conectar() throws Exception{
+    public static Connection conectar() throws Exception{
         return DriverManager.getConnection(
             String.format(
                 "jdbc:mysql://%s:%s/%s",

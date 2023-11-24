@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import model.dto.LivroPreferido;
 import model.dto.Usuario;
 
+import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -232,28 +233,28 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             UsuarioDAO usuarioDAO = new UsuarioDAO(properties);
 
             usuarioDAO.cadastrar(usuario);
-            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
+            System.out.println("Usuario cadastrado com sucesso!");
 
-
-//            usuarioDAO.selectId(usuario);
-//            System.out.println("Select de id realizado com sucesso!");
+            usuarioDAO.receberDados(usuario);
+            System.out.println("Select realizado com sucesso!");
 
             LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
 
             if (romanceRadioButton.isSelected()) {
                 var p = new LivroPreferido(usuario.getIdUsuario(), 1);
-                livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
+                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (ficcaoRadioButton.isSelected()) {
                 var p = new LivroPreferido(usuario.getIdUsuario(), 2);
-                livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
+                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (tecnicoRadioButton.isSelected()) {
                 var p = new LivroPreferido(usuario.getIdUsuario(), 3);
-                livroPreferidoDAO.registrar(p, properties); // Adicione a instância de Properties aqui
+                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
             }
 
-            JOptionPane.showMessageDialog(null, "Preferencias cadastradas com sucesso!");
+            JOptionPane.showMessageDialog(null, "Usuario e preferências cadastrados com sucesso!");
+
             var ht = new PrincipalAdmVIEW(properties);
             ht.setVisible(true);
             this.dispose();

@@ -26,42 +26,25 @@ public class LivroPreferidoDAO {
     // Este método registra um livro favorito no caderno (banco de dados).
     // Recebemos um LivroPreferido (p) e algumas instruções adicionais (properties) sobre como fazer o trabalho.
 
-    public static void registrar(LivroPreferido p, Properties properties) throws Exception {
-        // Aqui estamos criando a instrução sobre o que escrever no caderno.
-        // Seria como dizer ao assistente para anotar o nome do livro (id_usuario) e o tipo de livro (id_genero).
-
-        String sql = "INSERT INTO tbusuarios (id_usuario, id_genero) VALUES (?, ?)";
-
-        // Criamos uma fábrica especializada em fazer conexões (conectar ao banco de dados).
-        // A fábrica é como a empresa que fabrica o caderno onde os livros favoritos são anotados.
-
+    public void registrar(LivroPreferido p) throws Exception {
         var fabrica = new ConnectionFactory(properties);
-
-        // Agora, estamos dizendo ao assistente para começar a trabalhar.
-        // Ele pega o caderno (conexão) da fábrica e começa a escrever as informações sobre o livro favorito.
-
+        String sql = "INSERT INTO tb_preferidos (idUsuario, id_genero) VALUES (?, ?)";
         try (var conexao = fabrica.conectar()) {
-            try (var ps = conexao.prepareStatement(sql)) {
-                // Aqui, o assistente está preenchendo o nome do livro (id_usuario) e o tipo de livro (id_genero) no caderno.
-                // Ele então fecha o caderno, indicando que o trabalho está feito.
-
-                ps.setInt(1, p.getIdUsuario());
-                ps.setInt(2, p.getIdGenero());
-                ps.execute();
-            }
-        } catch (SQLException e) {
-            // Se algo der errado, o assistente nos mostra o que aconteceu (exibe na tela).
-            // Ele não desiste facilmente e tenta encontrar uma solução para o problema.
-
-            e.printStackTrace();
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setInt(1, p.getIdUsuario());
+            ps.setInt(2, p.getIdGenero());
+            ps.execute();
+            ps.close();
+        } catch (SQLException erro) {
+            erro.printStackTrace();
         }
     }
 }
 
-    // Este é um construtor adicional que pode ou não ser necessário.
-    // Se precisar dele, pode adicionar as instruções apropriadas aqui.
-    
+// Este é um construtor adicional que pode ou não ser necessário.
+// Se precisar dele, pode adicionar as instruções apropriadas aqui.
+
 //    public LivroPreferidoDAO(int idUsuario, int i) {
-        // Não tenho certeza sobre o propósito deste construtor.
-        // Se precisar dele, adicione a lógica apropriada aqui.
+// Não tenho certeza sobre o propósito deste construtor.
+// Se precisar dele, adicione a lógica apropriada aqui.
 //    }
