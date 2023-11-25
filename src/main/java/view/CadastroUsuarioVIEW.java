@@ -9,7 +9,7 @@ import dao.UsuarioDAO;
 
 import javax.swing.JOptionPane;
 
-import model.dto.LivroPreferido;
+import model.dto.Livro;
 import model.dto.Usuario;
 
 import java.sql.SQLException;
@@ -241,15 +241,15 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
 
             if (romanceRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 1);
+                var p = new Livro(usuario.getIdUsuario(), 2);
                 livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (ficcaoRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 2);
+                var p = new Livro(usuario.getIdUsuario(), 2);
                 livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (tecnicoRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 3);
+                var p = new Livro( usuario.getIdUsuario(), 3);
                 livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
             }
 
@@ -286,7 +286,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idadeTextFieldActionPerformed
 
-    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoTextFieldActionPerformed
+    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                
     }
     private javax.swing.JCheckBox administradorCheckBox;
     private javax.swing.JButton cadastrarButton;

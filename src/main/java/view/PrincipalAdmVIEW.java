@@ -26,6 +26,13 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+    public PrincipalAdmVIEW(Properties properties, Usuario logado) {
+        this.properties = properties;    
+        this.logado = logado;
+        initComponents();
+        this.setLocationRelativeTo(null);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
