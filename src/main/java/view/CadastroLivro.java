@@ -1,12 +1,28 @@
 package view;
 
-public class CadastroLivro extends javax.swing.JFrame {
+import dao.LivroDAO;
+import model.dto.Usuario;
 
-    /**
-     * Creates new form CadastroComum
-     */
+import javax.swing.*;
+import java.util.Properties;
+import model.dto.Avaliacao;
+import model.dto.Livro;
+
+public class CadastroLivro extends javax.swing.JFrame {
+    
+    private Properties properties;
+    
+    Usuario logado;
+
     public CadastroLivro() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    }
+
+    public CadastroLivro(Properties properties, Usuario logado) {
+        this();
+        this.properties = properties;
+        this.logado = logado;
     }
 
     /**
@@ -18,31 +34,35 @@ public class CadastroLivro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nomeAutor = new javax.swing.JTextField();
-        nomeDoLivro2 = new javax.swing.JTextField();
-        escolherLivro = new javax.swing.JComboBox<>();
+        notaLivro = new javax.swing.JTextField();
+        nomeDoLivro = new javax.swing.JTextField();
         label1 = new java.awt.Label();
         cadastrarLivroButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        managinglife1 = new javax.swing.JLabel();
+        nomeAutor = new javax.swing.JTextField();
+        romanceRadioButton = new javax.swing.JRadioButton();
+        ficcaoRadioButton = new javax.swing.JRadioButton();
+        tecnicoRadioButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nomeAutor.setToolTipText("");
-        nomeAutor.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o autor do livro"));
-        nomeAutor.addActionListener(new java.awt.event.ActionListener() {
+        notaLivro.setToolTipText("");
+        notaLivro.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite a nota"));
+        notaLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeAutorActionPerformed(evt);
+                notaLivroActionPerformed(evt);
             }
         });
 
-        nomeDoLivro2.setToolTipText("");
-        nomeDoLivro2.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o nome do livro"));
-        nomeDoLivro2.addActionListener(new java.awt.event.ActionListener() {
+        nomeDoLivro.setToolTipText("");
+        nomeDoLivro.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o nome do livro"));
+        nomeDoLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeDoLivro2ActionPerformed(evt);
+                nomeDoLivroActionPerformed(evt);
             }
         });
-
-        escolherLivro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Ténico" }));
 
         label1.setText("Escolha o Gênero do livro");
 
@@ -53,55 +73,165 @@ public class CadastroLivro extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Screenshot_1.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book.png"))); // NOI18N
+
+        managinglife1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        managinglife1.setText("Cadastre um novo Livro");
+
+        nomeAutor.setToolTipText("");
+        nomeAutor.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite o nome do autor"));
+        nomeAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeAutorActionPerformed(evt);
+            }
+        });
+
+        romanceRadioButton.setText("Romance");
+        romanceRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                romanceRadioButtonActionPerformed(evt);
+            }
+        });
+
+        ficcaoRadioButton.setText("Ficção");
+
+        tecnicoRadioButton.setText("Técnico");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(managinglife1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(escolherLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nomeDoLivro2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(romanceRadioButton)
+                                            .addGap(28, 28, 28)
+                                            .addComponent(ficcaoRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(tecnicoRadioButton))
+                                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(nomeDoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nomeAutor, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                                    .addComponent(notaLivro)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 27, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(nomeDoLivro2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(managinglife1))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeDoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(escolherLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(romanceRadioButton)
+                            .addComponent(ficcaoRadioButton)
+                            .addComponent(tecnicoRadioButton)))
+                    .addComponent(notaLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
+
+        notaLivro.getAccessibleContext().setAccessibleParent(notaLivro);
+        nomeDoLivro.getAccessibleContext().setAccessibleParent(nomeDoLivro);
+        nomeAutor.getAccessibleContext().setAccessibleParent(nomeAutor);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void notaLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notaLivroActionPerformed
+
+    private void nomeDoLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDoLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeDoLivroActionPerformed
+
+    private void cadastrarLivroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroButtonActionPerformed
+    
+        //atribui ao livro dados simples do livro recebidos do formulario
+        Livro livro = new Livro();
+        livro.setTitulo(nomeDoLivro.getText());
+        livro.setAutor(nomeAutor.getText());
+        
+        //atribui ao livro o codigo do genero selecionado
+        if (romanceRadioButton.isSelected()){
+            livro.setIdGenero(1);
+        }
+        if (ficcaoRadioButton.isSelected()){
+            livro.setIdGenero(2);
+        }
+        if (tecnicoRadioButton.isSelected()){
+            livro.setIdGenero(3);
+        }
+        
+        //atribui ao livro o ID do usuario que o cadastrou
+        livro.setIdUsuario(logado.getIdUsuario());
+        
+        try {
+            LivroDAO livroDAO = new LivroDAO(properties);
+            livroDAO.cadastrar(livro);
+            livroDAO.registrar(livro);
+            Avaliacao avaliacao = new Avaliacao();
+            avaliacao.setNota(Integer.parseInt(notaLivro.getText()));
+            avaliacao.setIdLivro(livro.getIdLivro());
+            avaliacao.setIdUsuario(logado.getIdUsuario());
+            
+            System.out.println("Livro cadastrado com sucesso!");
+
+            JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
+            var ht = new HomeAdminVIEW(properties, logado);
+            ht.setVisible(true);
+            this.dispose();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog (null, "Erro ao cadastrar o livro/avaliacao");
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
 
     private void nomeAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAutorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeAutorActionPerformed
 
-    private void nomeDoLivro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDoLivro2ActionPerformed
+    private void romanceRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_romanceRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeDoLivro2ActionPerformed
-
-    private void cadastrarLivroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroButtonActionPerformed
- 
-    }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
+    }//GEN-LAST:event_romanceRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,9 +270,15 @@ public class CadastroLivro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarLivroButton;
-    private javax.swing.JComboBox<String> escolherLivro;
+    private javax.swing.JRadioButton ficcaoRadioButton;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private java.awt.Label label1;
+    private javax.swing.JLabel managinglife1;
     private javax.swing.JTextField nomeAutor;
-    private javax.swing.JTextField nomeDoLivro2;
+    private javax.swing.JTextField nomeDoLivro;
+    private javax.swing.JTextField notaLivro;
+    private javax.swing.JRadioButton romanceRadioButton;
+    private javax.swing.JRadioButton tecnicoRadioButton;
     // End of variables declaration//GEN-END:variables
 }

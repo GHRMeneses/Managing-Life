@@ -23,10 +23,10 @@ SELECT * FROM tbusuarios;
 INSERT INTO tbusuarios (nome, login, senha, idade, sexo, id_tipo_usuario)
 VALUES ('administrador','admin', 123, 23, 'masculino', 1);
 
-DELETE FROM tbusuarios where `idUsuario` = 6;
+DELETE FROM tbusuarios where `idUsuario` = 12;
 
 -- Adicionar usuario comum na tabela "tbusuarios"
-INSERT INTO tbusuarios(nome, login, senha, idade, sexo, id_tipo_usuario) values('Mariana', 'mariana123', 'senha123', 21, 'feminino', 2);
+INSERT INTO tbusuarios(nome, login, senha, idade, sexo, id_tipo_usuario) values('Mariana', 'emerson', '123', 21, 'feminino', 2);
 
 -- Criação da tabela de Livros
 CREATE TABLE tb_genero(
@@ -46,6 +46,7 @@ SELECT * FROM tb_livro;
 CREATE TABLE tb_livro (
   id_livro INT PRIMARY KEY AUTO_INCREMENT,
   titulo VARCHAR(30) NOT NULL,
+  autor varchar(50) NOT NULL,
   id_genero INT NOT NULL,
   idUsuario INT NOT NULL,
   CONSTRAINT FK_livro_genero FOREIGN KEY (id_genero) REFERENCES tb_genero(id_genero),

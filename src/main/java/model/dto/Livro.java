@@ -4,31 +4,53 @@
  */
 package model.dto;
 
-/**
- *
- * @author Emers
- */
-public class Livro {
+import dao.AvaliacaoDAO;
+import dao.LivroDAO;
+import lombok.Data;
 
-    // Estas são as variáveis que representam as características do livro.
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Properties;
+
+@Data
+
+public class Livro implements Comparable <Livro>{
     
     private String titulo;
     private String autor;
-    private String tipo;
-    private int nota;
+    private int idLivro;
+    private int idGenero;
+    private int idUsuario;
 
-    // Este é o construtor da classe, utilizado para criar instâncias de Livro.
-    // Ele recebe todas as informações necessárias para definir as características do livro.
-    
-    public Livro(String titulo, String autor, String tipo, int nota) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.tipo = tipo;
-        this.nota = nota;
+    private int numAvaliacoes;
+
+    private double nota;
+
+
+    public Livro() {
     }
 
-    // Estes são os métodos de acesso (getters e setters) para as características do livro.
-    // Eles permitem que outras partes do código obtenham ou alterem essas características.
+    public Livro(int idUsuario, int idGenero) {
+        this.idUsuario = idUsuario;
+        this.idGenero = idGenero;
+    }
+
+    public Livro(String titulo, String autor, int idLivro, int idGenero, int idUsuario) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.idLivro = idLivro;
+        this.idGenero = idGenero;
+        this.idUsuario = idUsuario;
+    }
+    
+    public int getIdLivro() {
+        return idLivro;
+    }
+
+    public void setIdLivro(int idLivro) {
+        this.idLivro = idLivro;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -46,19 +68,43 @@ public class Livro {
         this.autor = autor;
     }
 
-    public String getTipo() {
-        return tipo;
+    public int getIdGenero() {
+        return idGenero;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setIdGenero(int idGenero) {
+        this.idGenero = idGenero;
     }
 
-    public int getNota() {
-        return nota;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setNota(int nota) {
-        this.nota = nota;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
+
+
+    @Override
+    public int compareTo(Livro livro){
+
+        if(this.getNota() == livro.getNota()){
+
+            if(this.getNumAvaliacoes() == livro.getNumAvaliacoes()){
+
+                // desempata de novo por titulo
+                return this.getTitulo().compareTo(livro.getTitulo());
+
+            }
+            else if(this.getNumAvaliacoes() > livro.getNumAvaliacoes()) return 1;
+
+            else return -1;
+
+        }
+
+        else if(this.getNota() < livro.getNota()) return 1;
+
+        else return -1;
+    }
+
 }

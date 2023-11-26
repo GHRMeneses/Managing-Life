@@ -4,15 +4,14 @@
  */
 package view;
 
-import dao.LivroPreferidoDAO;
+import dao.LivroDAO;
 import dao.UsuarioDAO;
 
 import javax.swing.JOptionPane;
 
-import model.dto.LivroPreferido;
+import model.dto.Livro;
 import model.dto.Usuario;
 
-import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -25,14 +24,14 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     /**
      * Creates new form CadastroUsuarioVIEW
      */
-    public CadastroUsuarioVIEW(Properties properties) {
+    public CadastroUsuarioVIEW() {
         super("Managing Life - Cadastro de usuário");
-        this.properties = properties;
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public CadastroUsuarioVIEW(Usuario logado, Properties properties) {
+    public CadastroUsuarioVIEW(Properties properties, Usuario logado) {
+        this();
         this.properties = properties;
         this.logado = logado;
     }
@@ -212,7 +211,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        var ht = new PrincipalAdmVIEW(properties);
+        var ht = new HomeAdminVIEW(properties, logado);
         ht.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_voltarButtonActionPerformed
@@ -238,24 +237,24 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             usuarioDAO.receberDados(usuario);
             System.out.println("Select realizado com sucesso!");
 
-            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
+            LivroDAO livroDAO = new LivroDAO(properties);
 
             if (romanceRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 1);
-                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+                var p = new Livro(usuario.getIdUsuario(), 2);
+                livroDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (ficcaoRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 2);
-                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+                var p = new Livro(usuario.getIdUsuario(), 2);
+                livroDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (tecnicoRadioButton.isSelected()) {
-                var p = new LivroPreferido(usuario.getIdUsuario(), 3);
-                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+                var p = new Livro( usuario.getIdUsuario(), 3);
+                livroDAO.registrar(p); // Adicione a instância de Properties aqui
             }
 
             JOptionPane.showMessageDialog(null, "Usuario e preferências cadastrados com sucesso!");
 
-            var ht = new PrincipalAdmVIEW(properties);
+            var ht = new HomeAdminVIEW(properties, logado);
             ht.setVisible(true);
             this.dispose();
         } catch (Exception e) {
@@ -286,7 +285,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idadeTextFieldActionPerformed
 
-    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoTextFieldActionPerformed
+    private void generoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                
     }
     private javax.swing.JCheckBox administradorCheckBox;
     private javax.swing.JButton cadastrarButton;
@@ -302,3 +301,4 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     private javax.swing.JRadioButton tecnicoRadioButton;
     private javax.swing.JButton voltarButton;
 }
+
