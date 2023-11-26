@@ -26,9 +26,9 @@
           <Component id="jLabel2" alignment="0" pref="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="cadastrarUsuarioButton1" min="-2" pref="133" max="-2" attributes="0"/>
+              <Component id="cadastrarLivrosButton" min="-2" pref="133" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="cadastrarLivroButton" min="-2" pref="133" max="-2" attributes="0"/>
+              <Component id="vizualizarLivroButton" min="-2" pref="133" max="-2" attributes="0"/>
               <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -36,11 +36,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="managinglife1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="managinglife" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -56,8 +56,8 @@
               <Component id="managinglife" min="-2" pref="15" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cadastrarUsuarioButton1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="cadastrarLivroButton" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="cadastrarLivrosButton" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="vizualizarLivroButton" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="85" max="32767" attributes="0"/>
           </Group>
@@ -65,20 +65,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="cadastrarLivroButton">
+    <Component class="javax.swing.JButton" name="vizualizarLivroButton">
       <Properties>
-        <Property name="label" type="java.lang.String" value="Cadastrar Livro"/>
+        <Property name="text" type="java.lang.String" value="Vizualizar Livros"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarLivroButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vizualizarLivroButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="cadastrarUsuarioButton1">
+    <Component class="javax.swing.JButton" name="cadastrarLivrosButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar User"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar Livros"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarUsuarioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarLivrosButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="managinglife">
@@ -86,7 +86,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Seja bem vindo Administrador."/>
+        <Property name="text" type="java.lang.String" value="Seja bem vindo novamente."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="managinglife1">
@@ -94,7 +94,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="36" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Painel Admin"/>
+        <Property name="text" type="java.lang.String" value="Managing-Life "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
