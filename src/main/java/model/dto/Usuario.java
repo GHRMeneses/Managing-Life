@@ -49,7 +49,7 @@ public class Usuario {
         return id_tipo_usuario;
     }
 
-    public void setId_tipo_usuario(int tipo){
+    public void setId_tipo_usuario(int id_tipo_usuario){
         this.id_tipo_usuario = id_tipo_usuario;
     }
 
@@ -89,7 +89,7 @@ public class Usuario {
         return sexo;
     }
 
-    public void setSexo(String genero) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 }

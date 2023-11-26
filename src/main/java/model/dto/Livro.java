@@ -4,28 +4,36 @@
  */
 package model.dto;
 
+import dao.AvaliacaoDAO;
+import dao.LivroDAO;
 import lombok.Data;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Properties;
 
 @Data
 
-public class Livro {
+public class Livro implements Comparable <Livro>{
     
-    // Estas são as variáveis que representam as informações sobre o usuário e o gênero preferido.
     private String titulo;
     private String autor;
-    private int idLivro, idGenero, idUsuario;
-    
-    // Este é o construtor da classe, utilizado para criar instâncias de Livro.
-    // Ele recebe as informações necessárias para definir a preferência do usuário.
+    private int idLivro;
+    private int idGenero;
+    private int idUsuario;
+
+    private int numAvaliacoes;
+
+    private double nota;
+
 
     public Livro() {
     }
 
-    
     public Livro(int idUsuario, int idGenero) {
         this.idUsuario = idUsuario;
         this.idGenero = idGenero;
-
     }
 
     public Livro(String titulo, String autor, int idLivro, int idGenero, int idUsuario) {
@@ -75,6 +83,28 @@ public class Livro {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-    
+
+
+    @Override
+    public int compareTo(Livro livro){
+
+        if(this.getNota() == livro.getNota()){
+
+            if(this.getNumAvaliacoes() == livro.getNumAvaliacoes()){
+
+                // desempata de novo por titulo
+                return this.getTitulo().compareTo(livro.getTitulo());
+
+            }
+            else if(this.getNumAvaliacoes() > livro.getNumAvaliacoes()) return 1;
+
+            else return -1;
+
+        }
+
+        else if(this.getNota() < livro.getNota()) return 1;
+
+        else return -1;
+    }
 
 }

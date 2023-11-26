@@ -23,7 +23,7 @@ SELECT * FROM tbusuarios;
 INSERT INTO tbusuarios (nome, login, senha, idade, sexo, id_tipo_usuario)
 VALUES ('administrador','admin', 123, 23, 'masculino', 1);
 
-DELETE FROM tbusuarios where `idUsuario` = 6;
+DELETE FROM tbusuarios where `idUsuario` = 12;
 
 -- Adicionar usuario comum na tabela "tbusuarios"
 INSERT INTO tbusuarios(nome, login, senha, idade, sexo, id_tipo_usuario) values('Mariana', 'emerson', '123', 21, 'feminino', 2);

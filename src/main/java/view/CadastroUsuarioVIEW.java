@@ -4,7 +4,7 @@
  */
 package view;
 
-import dao.LivroPreferidoDAO;
+import dao.LivroDAO;
 import dao.UsuarioDAO;
 
 import javax.swing.JOptionPane;
@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import model.dto.Livro;
 import model.dto.Usuario;
 
-import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -212,7 +211,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        var ht = new PrincipalAdmVIEW(properties, logado);
+        var ht = new HomeAdminVIEW(properties, logado);
         ht.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_voltarButtonActionPerformed
@@ -238,24 +237,24 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
             usuarioDAO.receberDados(usuario);
             System.out.println("Select realizado com sucesso!");
 
-            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
+            LivroDAO livroDAO = new LivroDAO(properties);
 
             if (romanceRadioButton.isSelected()) {
                 var p = new Livro(usuario.getIdUsuario(), 2);
-                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+                livroDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (ficcaoRadioButton.isSelected()) {
                 var p = new Livro(usuario.getIdUsuario(), 2);
-                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+                livroDAO.registrar(p); // Adicione a instância de Properties aqui
             }
             if (tecnicoRadioButton.isSelected()) {
                 var p = new Livro( usuario.getIdUsuario(), 3);
-                livroPreferidoDAO.registrar(p); // Adicione a instância de Properties aqui
+                livroDAO.registrar(p); // Adicione a instância de Properties aqui
             }
 
             JOptionPane.showMessageDialog(null, "Usuario e preferências cadastrados com sucesso!");
 
-            var ht = new PrincipalAdmVIEW(properties, logado);
+            var ht = new HomeAdminVIEW(properties, logado);
             ht.setVisible(true);
             this.dispose();
         } catch (Exception e) {

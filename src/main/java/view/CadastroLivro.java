@@ -1,12 +1,9 @@
 package view;
 
-import dao.LivroPreferidoDAO;
-import dao.UsuarioDAO;
+import dao.LivroDAO;
 import model.dto.Usuario;
 
 import javax.swing.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Properties;
 import model.dto.Avaliacao;
 import model.dto.Livro;
@@ -206,9 +203,9 @@ public class CadastroLivro extends javax.swing.JFrame {
         livro.setIdUsuario(logado.getIdUsuario());
         
         try {
-            LivroPreferidoDAO livroPreferidoDAO = new LivroPreferidoDAO(properties);
-            livroPreferidoDAO.cadastrar(livro);
-            livroPreferidoDAO.registrar(livro);
+            LivroDAO livroDAO = new LivroDAO(properties);
+            livroDAO.cadastrar(livro);
+            livroDAO.registrar(livro);
             Avaliacao avaliacao = new Avaliacao();
             avaliacao.setNota(Integer.parseInt(notaLivro.getText()));
             avaliacao.setIdLivro(livro.getIdLivro());
@@ -217,7 +214,7 @@ public class CadastroLivro extends javax.swing.JFrame {
             System.out.println("Livro cadastrado com sucesso!");
 
             JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
-            var ht = new PrincipalAdmVIEW(properties, logado);
+            var ht = new HomeAdminVIEW(properties, logado);
             ht.setVisible(true);
             this.dispose();
         }
