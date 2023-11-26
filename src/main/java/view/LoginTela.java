@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 public class LoginTela extends javax.swing.JFrame {
     private Properties properties;
+
+    Usuario logado;
+
     private ResultSet rsusuariodao;
 
     public LoginTela(Properties properties) {
@@ -154,8 +157,9 @@ public class LoginTela extends javax.swing.JFrame {
             UsuarioDAO usuarioDAO = new UsuarioDAO(properties);
 
             if (usuarioDAO.autenticacaoUsuario(usuario)) {
+                usuarioDAO.receberDados(usuario);
 
-                PrincipalAdmVIEW principalAdmVIEW = new PrincipalAdmVIEW(properties);
+                PrincipalAdmVIEW principalAdmVIEW = new PrincipalAdmVIEW(properties, usuario);
                 principalAdmVIEW.setLocation(this.getLocationOnScreen());
                 principalAdmVIEW.setVisible(true);
                 this.dispose();

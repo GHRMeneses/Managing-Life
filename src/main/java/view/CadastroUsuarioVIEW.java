@@ -25,14 +25,14 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     /**
      * Creates new form CadastroUsuarioVIEW
      */
-    public CadastroUsuarioVIEW(Properties properties) {
+    public CadastroUsuarioVIEW() {
         super("Managing Life - Cadastro de usuário");
-        this.properties = properties;
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public CadastroUsuarioVIEW(Usuario logado, Properties properties) {
+    public CadastroUsuarioVIEW(Properties properties, Usuario logado) {
+        this();
         this.properties = properties;
         this.logado = logado;
     }
@@ -212,7 +212,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        var ht = new PrincipalAdmVIEW(properties);
+        var ht = new PrincipalAdmVIEW(properties, logado);
         ht.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_voltarButtonActionPerformed
@@ -255,7 +255,7 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Usuario e preferências cadastrados com sucesso!");
 
-            var ht = new PrincipalAdmVIEW(properties);
+            var ht = new PrincipalAdmVIEW(properties, logado);
             ht.setVisible(true);
             this.dispose();
         } catch (Exception e) {
