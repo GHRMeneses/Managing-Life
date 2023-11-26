@@ -48,6 +48,7 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
         managinglife = new javax.swing.JLabel();
         managinglife1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        vizualizarLivroButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +59,7 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
             }
         });
 
-        cadastrarUsuarioButton1.setText("Cadastrar User");
+        cadastrarUsuarioButton1.setText("Cadastrar usuário");
         cadastrarUsuarioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarUsuarioButton1ActionPerformed(evt);
@@ -72,6 +73,13 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
         managinglife1.setText("Painel Admin");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Screenshot_1.png"))); // NOI18N
+
+        vizualizarLivroButton2.setText("Vizualizar Livros");
+        vizualizarLivroButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vizualizarLivroButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +100,10 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
                         .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(managinglife)
-                        .addGap(88, 88, 88))))
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(vizualizarLivroButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +117,9 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarUsuarioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(vizualizarLivroButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,6 +138,12 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cadastrarUsuarioButton1ActionPerformed
 
+    private void vizualizarLivroButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vizualizarLivroButton2ActionPerformed
+        var vizualizarLivro = new VizualizacaoLivros();
+        vizualizarLivro.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_vizualizarLivroButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -135,5 +154,6 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel managinglife;
     private javax.swing.JLabel managinglife1;
+    private javax.swing.JButton vizualizarLivroButton2;
     // End of variables declaration//GEN-END:variables
 }

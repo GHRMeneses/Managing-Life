@@ -42,6 +42,10 @@
                       <Component id="managinglife" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="vizualizarLivroButton2" min="-2" pref="133" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -59,7 +63,9 @@
                   <Component id="cadastrarUsuarioButton1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="cadastrarLivroButton" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="vizualizarLivroButton2" min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,7 +81,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="cadastrarUsuarioButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar User"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar usu&#xe1;rio"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarUsuarioButton1ActionPerformed"/>
@@ -103,6 +109,14 @@
           <Image iconType="3" name="/imagens/Screenshot_1.png"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="vizualizarLivroButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vizualizar Livros"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vizualizarLivroButton2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
