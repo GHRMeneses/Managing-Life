@@ -19,6 +19,13 @@ public class CadastroLivro extends javax.swing.JFrame {
 
     public CadastroLivro() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    }
+
+    public CadastroLivro(Properties properties, Usuario logado) {
+        this();
+        this.properties = properties;
+        this.logado = logado;
     }
 
     /**
@@ -210,7 +217,7 @@ public class CadastroLivro extends javax.swing.JFrame {
             System.out.println("Livro cadastrado com sucesso!");
 
             JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
-            var ht = new PrincipalAdmVIEW(properties);
+            var ht = new PrincipalAdmVIEW(properties, logado);
             ht.setVisible(true);
             this.dispose();
         }

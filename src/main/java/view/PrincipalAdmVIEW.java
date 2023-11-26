@@ -18,20 +18,15 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
 
     Usuario logado;
 
-    /**
-     * Creates new form PrincipalAdmVIEW
-     */
-    public PrincipalAdmVIEW(Properties properties) {
-        this.properties = properties;
+    public PrincipalAdmVIEW() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+
     public PrincipalAdmVIEW(Properties properties, Usuario logado) {
-        this.properties = properties;    
+        this();
+        this.properties = properties;
         this.logado = logado;
-        initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -113,14 +108,14 @@ public class PrincipalAdmVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarLivroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroButtonActionPerformed
-        var cadastroLivro = new CadastroLivro();
+        var cadastroLivro = new CadastroLivro(properties, logado);
         cadastroLivro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
 
     private void cadastrarUsuarioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioButton1ActionPerformed
         // TODO add your handling code here:
-        var cut = new CadastroUsuarioVIEW(properties);
+        var cut = new CadastroUsuarioVIEW(properties, logado);
         cut.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarUsuarioButton1ActionPerformed

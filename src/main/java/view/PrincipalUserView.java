@@ -21,17 +21,15 @@ public class PrincipalUserView extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalAdmVIEW
      */
-    public PrincipalUserView(Properties properties) {
-        this.properties = properties;
+    public PrincipalUserView() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
     
     public PrincipalUserView(Properties properties, Usuario logado) {
-        this.properties = properties;    
+        this();
+        this.properties = properties;
         this.logado = logado;
-        initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -120,7 +118,7 @@ public class PrincipalUserView extends javax.swing.JFrame {
 
     private void cadastrarLivrosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivrosButtonActionPerformed
         // TODO add your handling code here:
-        var cut = new CadastroUsuarioVIEW(properties);
+        var cut = new CadastroUsuarioVIEW(properties, logado);
         cut.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarLivrosButtonActionPerformed
