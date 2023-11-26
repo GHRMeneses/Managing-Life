@@ -302,3 +302,4 @@ public class CadastroUsuarioVIEW extends javax.swing.JFrame {
     private javax.swing.JRadioButton tecnicoRadioButton;
     private javax.swing.JButton voltarButton;
 }
+
