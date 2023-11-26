@@ -15,6 +15,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
      */
     public VizualizacaoLivros() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -46,7 +47,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "O Senhor dos Anéis", "1984", "Cem Anos de Solidão", "A Revolução dos Bichos", "O Pequeno Príncipe", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -69,14 +70,14 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3estrelas.png"))); // NOI18N
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Grande Sertão: Veredas", "A Hora da Estrela", "Harry Potter e a Pedra Filosofal", "O Nome do Vento", "As Crônicas de Nárnia" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(jList2);
 
         jList3.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Crime e Castigo", "A Menina que Roubava Livros", "Fahrenheit 451", "Dom Quixote", "Admirável Mundo Novo" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -85,7 +86,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2estrelas.png"))); // NOI18N
 
         jList4.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "O Alquimista", "Orgulho e Preconceito", "O Diário de Anne Frank", "O Hobbit", "A Metamorfose" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
