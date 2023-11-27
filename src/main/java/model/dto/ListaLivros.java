@@ -12,6 +12,13 @@ public class ListaLivros {
 
     private Properties properties;
 
+    Usuario logado;
+
+    public ListaLivros(Properties properties, Usuario logado) {
+        this.properties = properties;
+        this.logado = logado;
+    }
+
     public void listar(JList jList){
 
         try{

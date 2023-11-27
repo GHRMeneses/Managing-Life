@@ -41,8 +41,6 @@ SELECT * FROM tb_genero;
  INSERT INTO tb_genero (id_genero, descricao) VALUES ('2','ficção');
  INSERT INTO tb_genero (id_genero, descricao) VALUES ('3','técnico');
 
-SELECT * FROM tb_livro;
-
 CREATE TABLE tb_livro (
   id_livro INT PRIMARY KEY AUTO_INCREMENT,
   titulo VARCHAR(30) NOT NULL,
@@ -53,6 +51,8 @@ CREATE TABLE tb_livro (
   CONSTRAINT FK_livro_usuario FOREIGN KEY (idUsuario) REFERENCES tbusuarios(idUsuario)
 );
 
+SELECT * FROM tb_livro;
+DELETE FROM tb_livro WHERE id_livro IN (1, 2, 3,4,5,6,7,8,9,10,11,12,13,14);
 
 CREATE TABLE tb_avaliacao(
 id_avaliacao INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,7 +64,8 @@ CONSTRAINT FK_avaliacao_idusuario FOREIGN KEY (idUsuario) REFERENCES tbusuarios(
 );
 
 SELECT * FROM tb_avaliacao;
-SELECT * FROM tb_avaliacao;
+DELETE FROM tb_avaliacao WHERE id_avaliacao IN ( 2, 3);
+
 
 
 CREATE TABLE tb_preferidos (

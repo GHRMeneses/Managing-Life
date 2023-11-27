@@ -4,24 +4,29 @@
  */
 package view;
 
+import model.dto.ListaLivros;
 import model.dto.Usuario;
 
 import java.util.Properties;
 
-/**
- *
- * @author Emers
- */
 public class VizualizacaoLivros extends javax.swing.JFrame {
 
+    private Properties properties;
+
+    Usuario logado;
     /**
      * Creates new form VizualizacaoLivros
      */
-    public VizualizacaoLivros() {
+    public VizualizacaoLivros(Properties properties, Usuario logado) {
         super("Managing Life - Visualizaçao de Livros");
+        this.properties = properties;
+        this.logado = logado;
         initComponents();
         this.setLocationRelativeTo(null);
+        ListaLivros listaLivros = new ListaLivros(properties, logado);
+        listaLivros.listar(livroList);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +37,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        lista5 = new javax.swing.JList<>();
+        livroList = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         managinglife1 = new javax.swing.JLabel();
@@ -51,12 +56,12 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lista5.addComponentListener(new java.awt.event.ComponentAdapter() {
+        livroList.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                lista5ComponentShown(evt);
+                livroListComponentShown(evt);
             }
         });
-        jScrollPane1.setViewportView(lista5);
+        jScrollPane1.setViewportView(livroList);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Screenshot_1.png"))); // NOI18N
 
@@ -66,7 +71,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         managinglife1.setText("Maneging Life Book Store");
 
         managinglife2.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
-        managinglife2.setText("Confira os livros que foram destaques do mês");
+        managinglife2.setText("Confira os livros cadastrados");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1estrela.png"))); // NOI18N
 
@@ -201,13 +206,9 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_returnpageMouseClicked
 
-    private void lista5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista5ComponentShown
+    private void livroListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_livroListComponentShown
         // TODO add your handling code here:
-    }//GEN-LAST:event_lista5ComponentShown
-
-    private void lista3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista3ComponentShown
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lista3ComponentShown
+    }//GEN-LAST:event_livroListComponentShown
 
     private void lista2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista2ComponentShown
         // TODO add your handling code here:
@@ -217,27 +218,41 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lista4ComponentShown
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
+    private void lista3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista3ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lista3ComponentShown
+
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VizualizacaoLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VizualizacaoLivros(properties, logado).setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
@@ -253,7 +268,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
     private javax.swing.JList<String> lista2;
     private javax.swing.JList<String> lista3;
     private javax.swing.JList<String> lista4;
-    private javax.swing.JList<String> lista5;
+    private javax.swing.JList<String> livroList;
     private javax.swing.JLabel managinglife1;
     private javax.swing.JLabel managinglife2;
     private javax.swing.JLabel returnpage;

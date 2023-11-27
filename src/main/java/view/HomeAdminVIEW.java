@@ -139,7 +139,7 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarUsuarioButton1ActionPerformed
 
     private void vizualizarLivroButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vizualizarLivroButton2ActionPerformed
-        var vizualizarLivro = new VizualizacaoLivros();
+        var vizualizarLivro = new VizualizacaoLivros(properties, logado);
         vizualizarLivro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_vizualizarLivroButton2ActionPerformed
