@@ -74,12 +74,27 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3estrelas.png"))); // NOI18N
 
+        lista4.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                lista4ComponentShown(evt);
+            }
+        });
         jScrollPane2.setViewportView(lista4);
 
+        lista3.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                lista3ComponentShown(evt);
+            }
+        });
         jScrollPane3.setViewportView(lista3);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2estrelas.png"))); // NOI18N
 
+        lista2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                lista2ComponentShown(evt);
+            }
+        });
         jScrollPane4.setViewportView(lista2);
 
         returnpage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/return.png"))); // NOI18N
@@ -189,6 +204,18 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
     private void lista5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista5ComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_lista5ComponentShown
+
+    private void lista3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista3ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lista3ComponentShown
+
+    private void lista2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista2ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lista2ComponentShown
+
+    private void lista4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista4ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lista4ComponentShown
 
     /**
      * @param args the command line arguments
