@@ -1,5 +1,6 @@
 package view;
 
+import dao.AvaliacaoDAO;
 import dao.LivroDAO;
 import model.dto.Usuario;
 
@@ -237,18 +238,32 @@ public class CadastroLivro extends javax.swing.JFrame {
         try {
             LivroDAO livroDAO = new LivroDAO(properties);
             livroDAO.cadastrar(livro);
-            livroDAO.registrar(livro);
+            livroDAO.receberDados(livro);
+
             Avaliacao avaliacao = new Avaliacao();
             avaliacao.setNota(Integer.parseInt(notaLivro.getText()));
             avaliacao.setIdLivro(livro.getIdLivro());
             avaliacao.setIdUsuario(logado.getIdUsuario());
-            
+
+            AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO(properties);
+            avaliacaoDAO.cadastrar(avaliacao);
+
             System.out.println("Livro cadastrado com sucesso!");
 
             JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
-            var ht = new HomeAdminVIEW(properties, logado);
-            ht.setVisible(true);
-            this.dispose();
+
+            if (logado.getId_tipo_usuario() == 1) {
+                HomeAdminVIEW homeAdminVIEW = new HomeAdminVIEW(properties, logado);
+                homeAdminVIEW.setLocation(this.getLocationOnScreen());
+                homeAdminVIEW.setVisible(true);
+                this.dispose();
+            }
+            if (logado.getId_tipo_usuario() == 2){
+                HomeUserVIEW homeUserView = new HomeUserVIEW(properties, logado);
+                homeUserView.setLocation(this.getLocationOnScreen());
+                homeUserView.setVisible(true);
+                this.dispose();
+            }
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog (null, "Erro ao cadastrar o livro/avaliacao");

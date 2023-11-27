@@ -63,6 +63,10 @@ CONSTRAINT FK_avaliacao_idlivro FOREIGN KEY (id_livro) REFERENCES tb_livro(id_li
 CONSTRAINT FK_avaliacao_idusuario FOREIGN KEY (idUsuario) REFERENCES tbusuarios(idUsuario)
 );
 
+SELECT * FROM tb_avaliacao;
+SELECT * FROM tb_avaliacao;
+
+
 CREATE TABLE tb_preferidos (
     id_preferido INT PRIMARY KEY AUTO_INCREMENT,
     idUsuario INT NOT NULL,

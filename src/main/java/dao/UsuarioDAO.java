@@ -26,7 +26,6 @@ public class UsuarioDAO {
     // Mas se, por algum motivo, esquecermos de dar essas instruções, o guardião ainda pode trabalhar, mas com algumas limitações.
 
     public UsuarioDAO() {
-        this.properties = new Properties();
     }
 
     // Este método verifica se um leitor específico (usuário) tem uma chave especial (nome e senha) para entrar na biblioteca.

@@ -51,7 +51,7 @@
           <deprecated-pwd value="QVZOU181SkxBWWhFNmFGUFpEMXlUR3p4" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />

@@ -100,4 +100,22 @@ public class LivroDAO {
 
         }
     }
+
+    public void receberDados(Livro l)  throws Exception{
+        var fabrica = new ConnectionFactory(properties);
+        String sql = "SELECT * FROM tb_livro WHERE titulo = ? AND idUsuario = ?";
+        try (var conexao = fabrica.conectar()) {
+            var ps = conexao.prepareStatement(sql);
+            ps.setString(1, l.getTitulo());
+            ps.setInt(2, l.getIdUsuario());
+            try(ResultSet rs = ps.executeQuery()) {
+                rs.next();
+                l.setIdLivro(rs.getInt("id_livro"));
+                l.setTitulo(rs.getString("titulo"));
+                l.setAutor(rs.getString("autor"));
+                l.setIdGenero(rs.getInt("id_genero"));
+                l.setIdUsuario(rs.getInt("idUsuario"));
+            }
+        }
+    }
 }

@@ -2,6 +2,7 @@ package dao;
 
 import model.dto.Avaliacao;
 import model.dto.ConnectionFactory;
+import model.dto.Usuario;
 
 import java.sql.PreparedStatement;
 import java.util.Properties;
@@ -9,6 +10,9 @@ import java.util.Properties;
 public class AvaliacaoDAO {
 
     private Properties properties;
+
+    Usuario logado;
+
 
     public AvaliacaoDAO() {
     }
