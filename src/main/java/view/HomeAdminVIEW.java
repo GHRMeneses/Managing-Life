@@ -54,7 +54,7 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
             }
         });
 
-        cadastrarUsuarioButton1.setText("Cadastrar usuário");
+        cadastrarUsuarioButton1.setText("Cadastrar User");
         cadastrarUsuarioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarUsuarioButton1ActionPerformed(evt);

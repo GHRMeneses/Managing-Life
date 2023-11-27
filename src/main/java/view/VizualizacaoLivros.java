@@ -51,6 +51,11 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lista5.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Harry Poter", "Memórias Póstumas de Brás Cubas por Machado de Assis", "Vidas Secas por Graciliano Ramos", "O Guarani por José de Alencar", "Capitães da Areia por Jorge Amado", "O Primo Basílio por José Maria de Eça de Queirós", "Memórias Póstumas de Brás Cubas por Machado de Assis", "O Seminarista por Bernardo Guimarães", "Dom Casmurro por Machado de Assis", "São Bernardo por Graciliano Ramos", " ", " ", " ", " ", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         lista5.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 lista5ComponentShown(evt);
@@ -74,6 +79,11 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3estrelas.png"))); // NOI18N
 
+        lista4.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "As 48 leis do poder", "A Moreninha por Joaquim Manuel de Macedo", "A Metamorfose por Franz Kafka", "O Guarani por José de Alencar", "Quincas Borba por Machado de Assis", "Til por José de Alencar", "A Casa dos Espíritos por Isabel Allende", "O Pagador de Promessas por Dias Gomes" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         lista4.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 lista4ComponentShown(evt);
@@ -81,6 +91,11 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(lista4);
 
+        lista3.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "A Hora da Estrela por Clarice Lispector", "Grande Sertão: Veredas por Guimarães Rosa", "O Auto da Compadecida por Ariano Suassuna", "Quincas Borba por Machado de Assis", "O Cortiço por Aluísio Azevedo" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         lista3.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 lista3ComponentShown(evt);
@@ -90,6 +105,12 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2estrelas.png"))); // NOI18N
 
+        lista2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Memórias Póstumas de Brás Cubas por Machado de Assis", "Dom Casmurro por Machado de Assis", "Capitães da Areia por Jorge Amado", "Vidas Secas por Graciliano Ramos", "O Alienista por Machado de Assis", "A Viuvinha por José de Alencar", "O Tronco do Ipê por José de Alencar", "Memórias de um Sargento de Milícias por Manuel Antônio de Almeida", "Cinco Minutos por José de Alencar", "O Sertanejo por José de Alencar", "Til por José de Alencar", "Doze Casamentos Felizes por Machado de Assis", "Lucíola por José de Alencar", "O Gênio do Crime por João Carlos Marinho", "A Moreninha por Joaquim Manuel de Macedo", "O Cortiço por Aluísio Azevedo", "A Cidade e as Serras por José Maria de Eça de Queirós", "O Guarani por José de Alencar", "O Alienista por Machado de Assis", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        lista2.setToolTipText("");
         lista2.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 lista2ComponentShown(evt);

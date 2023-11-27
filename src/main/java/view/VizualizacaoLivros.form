@@ -149,6 +149,25 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="lista5">
           <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="15">
+                <StringItem index="0" value="Harry Poter"/>
+                <StringItem index="1" value="Mem&#xf3;rias P&#xf3;stumas de Br&#xe1;s Cubas por Machado de Assis"/>
+                <StringItem index="2" value="Vidas Secas por Graciliano Ramos"/>
+                <StringItem index="3" value="O Guarani por Jos&#xe9; de Alencar"/>
+                <StringItem index="4" value="Capit&#xe3;es da Areia por Jorge Amado"/>
+                <StringItem index="5" value="O Primo Bas&#xed;lio por Jos&#xe9; Maria de E&#xe7;a de Queir&#xf3;s"/>
+                <StringItem index="6" value="Mem&#xf3;rias P&#xf3;stumas de Br&#xe1;s Cubas por Machado de Assis"/>
+                <StringItem index="7" value="O Seminarista por Bernardo Guimar&#xe3;es"/>
+                <StringItem index="8" value="Dom Casmurro por Machado de Assis"/>
+                <StringItem index="9" value="S&#xe3;o Bernardo por Graciliano Ramos"/>
+                <StringItem index="10" value=" "/>
+                <StringItem index="11" value=" "/>
+                <StringItem index="12" value=" "/>
+                <StringItem index="13" value=" "/>
+                <StringItem index="14" value=" "/>
+              </StringArray>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="lista5ComponentShown"/>
@@ -219,6 +238,18 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="lista4">
           <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="8">
+                <StringItem index="0" value="As 48 leis do poder"/>
+                <StringItem index="1" value="A Moreninha por Joaquim Manuel de Macedo"/>
+                <StringItem index="2" value="A Metamorfose por Franz Kafka"/>
+                <StringItem index="3" value="O Guarani por Jos&#xe9; de Alencar"/>
+                <StringItem index="4" value="Quincas Borba por Machado de Assis"/>
+                <StringItem index="5" value="Til por Jos&#xe9; de Alencar"/>
+                <StringItem index="6" value="A Casa dos Esp&#xed;ritos por Isabel Allende"/>
+                <StringItem index="7" value="O Pagador de Promessas por Dias Gomes"/>
+              </StringArray>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="lista4ComponentShown"/>
@@ -238,6 +269,15 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="lista3">
           <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="A Hora da Estrela por Clarice Lispector"/>
+                <StringItem index="1" value="Grande Sert&#xe3;o: Veredas por Guimar&#xe3;es Rosa"/>
+                <StringItem index="2" value="O Auto da Compadecida por Ariano Suassuna"/>
+                <StringItem index="3" value="Quincas Borba por Machado de Assis"/>
+                <StringItem index="4" value="O Corti&#xe7;o por Alu&#xed;sio Azevedo"/>
+              </StringArray>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="lista3ComponentShown"/>
@@ -264,6 +304,31 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="lista2">
           <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="20">
+                <StringItem index="0" value="Mem&#xf3;rias P&#xf3;stumas de Br&#xe1;s Cubas por Machado de Assis"/>
+                <StringItem index="1" value="Dom Casmurro por Machado de Assis"/>
+                <StringItem index="2" value="Capit&#xe3;es da Areia por Jorge Amado"/>
+                <StringItem index="3" value="Vidas Secas por Graciliano Ramos"/>
+                <StringItem index="4" value="O Alienista por Machado de Assis"/>
+                <StringItem index="5" value="A Viuvinha por Jos&#xe9; de Alencar"/>
+                <StringItem index="6" value="O Tronco do Ip&#xea; por Jos&#xe9; de Alencar"/>
+                <StringItem index="7" value="Mem&#xf3;rias de um Sargento de Mil&#xed;cias por Manuel Ant&#xf4;nio de Almeida"/>
+                <StringItem index="8" value="Cinco Minutos por Jos&#xe9; de Alencar"/>
+                <StringItem index="9" value="O Sertanejo por Jos&#xe9; de Alencar"/>
+                <StringItem index="10" value="Til por Jos&#xe9; de Alencar"/>
+                <StringItem index="11" value="Doze Casamentos Felizes por Machado de Assis"/>
+                <StringItem index="12" value="Luc&#xed;ola por Jos&#xe9; de Alencar"/>
+                <StringItem index="13" value="O G&#xea;nio do Crime por Jo&#xe3;o Carlos Marinho"/>
+                <StringItem index="14" value="A Moreninha por Joaquim Manuel de Macedo"/>
+                <StringItem index="15" value="O Corti&#xe7;o por Alu&#xed;sio Azevedo"/>
+                <StringItem index="16" value="A Cidade e as Serras por Jos&#xe9; Maria de E&#xe7;a de Queir&#xf3;s"/>
+                <StringItem index="17" value="O Guarani por Jos&#xe9; de Alencar"/>
+                <StringItem index="18" value="O Alienista por Machado de Assis"/>
+                <StringItem index="19" value=" "/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
             <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="lista2ComponentShown"/>

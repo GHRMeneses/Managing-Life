@@ -81,7 +81,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="cadastrarUsuarioButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar usu&#xe1;rio"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar User"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarUsuarioButton1ActionPerformed"/>
