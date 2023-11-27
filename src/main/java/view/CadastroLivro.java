@@ -188,7 +188,25 @@ public class CadastroLivro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void notaLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaLivroActionPerformed
-        // TODO add your handling code here:
+      String texto = notaLivro.getText();
+
+    // Verifica se o texto é um número entre 1 e 5
+    try {
+        int nota = Integer.parseInt(texto);
+
+        // Verifica se o número está no intervalo de 1 a 5
+        if (nota >= 1 && nota <= 5) {
+            // Se estiver no intervalo válido, faça o que deseja com a nota
+            // Por exemplo, salve-a em alguma variável ou realize alguma ação
+            System.out.println("Nota válida: " + nota);
+        } else {
+            // Se estiver fora do intervalo, exibe uma mensagem de erro
+            System.out.println("A nota deve estar entre 1 e 5.");
+        }
+    } catch (NumberFormatException e) {
+        // Se o texto não puder ser convertido para um número inteiro, exibe uma mensagem de erro
+        System.out.println("Por favor, insira um número válido.");
+    }   
     }//GEN-LAST:event_notaLivroActionPerformed
 
     private void nomeDoLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeDoLivroActionPerformed

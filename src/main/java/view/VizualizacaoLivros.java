@@ -32,7 +32,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lista5 = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         managinglife1 = new javax.swing.JLabel();
@@ -41,17 +41,22 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        lista4 = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        lista3 = new javax.swing.JList<>();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        lista2 = new javax.swing.JList<>();
         returnpage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(jList1);
+        lista5.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                lista5ComponentShown(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lista5);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Screenshot_1.png"))); // NOI18N
 
@@ -69,13 +74,13 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/3estrelas.png"))); // NOI18N
 
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(lista4);
 
-        jScrollPane3.setViewportView(jList3);
+        jScrollPane3.setViewportView(lista3);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/2estrelas.png"))); // NOI18N
 
-        jScrollPane4.setViewportView(jList4);
+        jScrollPane4.setViewportView(lista2);
 
         returnpage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/return.png"))); // NOI18N
         returnpage.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,6 +186,10 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_returnpageMouseClicked
 
+    private void lista5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lista5ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lista5ComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -210,14 +219,14 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JList<String> lista2;
+    private javax.swing.JList<String> lista3;
+    private javax.swing.JList<String> lista4;
+    private javax.swing.JList<String> lista5;
     private javax.swing.JLabel managinglife1;
     private javax.swing.JLabel managinglife2;
     private javax.swing.JLabel returnpage;
