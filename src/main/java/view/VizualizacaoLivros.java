@@ -217,7 +217,7 @@ public class VizualizacaoLivros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnpageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnpageMouseClicked
-        var retornarpagina = new HomeAdminVIEW();
+        var retornarpagina = new HomeUserVIEW();
         retornarpagina.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_returnpageMouseClicked

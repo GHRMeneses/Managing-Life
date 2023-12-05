@@ -8,18 +8,18 @@ import java.util.Properties;
 import model.dto.Avaliacao;
 import model.dto.Livro;
 
-public class CadastroLivro extends javax.swing.JFrame {
+public class CadastroLivroAdmin extends javax.swing.JFrame {
     
     private Properties properties;
     
     Usuario logado;
 
-    public CadastroLivro() {
+    public CadastroLivroAdmin() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public CadastroLivro(Properties properties, Usuario logado) {
+    public CadastroLivroAdmin(Properties properties, Usuario logado) {
         this();
         this.properties = properties;
         this.logado = logado;
@@ -266,8 +266,8 @@ public class CadastroLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_romanceRadioButtonActionPerformed
 
     private void returnpageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnpageMouseClicked
-    var returnHomeUserVIEW = new HomeUserVIEW(properties, logado);
-    returnHomeUserVIEW.setVisible(true);
+    var returnHomeAdminVIEW = new HomeAdminVIEW(properties, logado);
+    returnHomeAdminVIEW.setVisible(true);
     dispose();
     }//GEN-LAST:event_returnpageMouseClicked
 
@@ -288,20 +288,21 @@ public class CadastroLivro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLivroAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLivroAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLivroAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroLivroAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroLivro().setVisible(true);
+                new CadastroLivroAdmin().setVisible(true);
             }
         });
     }

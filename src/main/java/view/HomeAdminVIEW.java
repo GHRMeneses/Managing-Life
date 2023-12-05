@@ -43,7 +43,6 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
         managinglife = new javax.swing.JLabel();
         managinglife1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        vizualizarLivroButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,13 +68,6 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Screenshot_1.png"))); // NOI18N
 
-        vizualizarLivroButton2.setText("Vizualizar Livros");
-        vizualizarLivroButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vizualizarLivroButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,10 +87,7 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
                         .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(managinglife)
-                        .addGap(88, 88, 88))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(vizualizarLivroButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101))))
+                        .addGap(88, 88, 88))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,17 +101,15 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarUsuarioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarLivroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(vizualizarLivroButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarLivroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarLivroButtonActionPerformed
-        var cadastroLivro = new CadastroLivro(properties, logado);
-        cadastroLivro.setVisible(true);
+        var cadastroLivroAdmin = new CadastroLivroAdmin(properties, logado);
+        cadastroLivroAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarLivroButtonActionPerformed
 
@@ -138,12 +125,6 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_cadastrarUsuarioButton1ActionPerformed
 
-    private void vizualizarLivroButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vizualizarLivroButton2ActionPerformed
-        var vizualizarLivro = new VizualizacaoLivros();
-        vizualizarLivro.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_vizualizarLivroButton2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -154,6 +135,5 @@ public class HomeAdminVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel managinglife;
     private javax.swing.JLabel managinglife1;
-    private javax.swing.JButton vizualizarLivroButton2;
     // End of variables declaration//GEN-END:variables
 }
